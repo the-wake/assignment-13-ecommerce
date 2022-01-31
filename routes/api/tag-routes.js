@@ -29,14 +29,15 @@ router.get('/:id', async (req, res) => {
       // }
     });
     if (!tagData) {
-      res.status(404).json({ message: 'No tag found with this id.' })
-    }
+      res.status(404).json({ message: 'No tag found with that ID.' })
+    };
     res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// I put this one in as a .then instead of an async cause... practice I guess.
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body)
@@ -55,6 +56,12 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
+  // How would I capture a bad request here with the .then-based async?
+  .then((updatedTag) => {
+    if (!updatedTag) {
+    res.status(404).json({ message: 'No tag found with that ID.' })
+    }
+  })
   // This works, but for some reason the updatedTag call is just returning [0].
   .then((updatedTag) => res.status(200).json(`Tag changed to ${req.body.tag_name}`))
   .catch((err) => {
@@ -71,11 +78,11 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!tagData) {
-      res.status(404).json({ message: 'No tag found with that id.' });
+      res.status(404).json({ message: 'No tag found with that ID.' });
       return;
     }
     // Like the above, tagData just returns 1. But everything works.
-    res.status(200).json(`Tag ${req.params.id} deleted.`);
+    res.status(200).json(`Tag ${req.params.id} successfully deleted.`);
   } catch (err) {
     res.status(500).json(err);
   }
