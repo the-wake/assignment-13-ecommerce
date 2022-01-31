@@ -1,3 +1,5 @@
 node_modules
 .env
 .DS_Store
+ignore_assets
+inst_assets
