@@ -55,15 +55,30 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-  // For some reason the updatedTag call is just returning [0].
+  // This works, but for some reason the updatedTag call is just returning [0].
   .then((updatedTag) => res.status(200).json(`Tag changed to ${req.body.tag_name}`))
   .catch((err) => {
     res.status(400).json(err);
   });
 });
 
-router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+router.delete('/:id', async (req, res) => {
+  try {
+    const tagData = await Tag.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!tagData) {
+      res.status(404).json({ message: 'No tag found with that id.' });
+      return;
+    }
+    // Like the above, tagData just returns 1. But everything works.
+    res.status(200).json(`Tag ${req.params.id} deleted.`);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
