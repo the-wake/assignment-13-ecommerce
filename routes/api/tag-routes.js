@@ -24,9 +24,6 @@ router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product },],
-      // attributes: {
-      // exclude: ['category_id'],
-      // }
     });
     if (!tagData) {
       res.status(404).json({ message: 'No tag found with that ID.' });
@@ -82,7 +79,6 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'No tag found with that ID.' });
       return;
     }
-    // Like the above, tagData just returns 1. But everything works.
     res.status(200).json(`Tag ${req.params.id} successfully deleted.`);
   } catch (err) {
     res.status(500).json(err);
