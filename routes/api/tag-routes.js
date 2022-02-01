@@ -29,7 +29,8 @@ router.get('/:id', async (req, res) => {
       // }
     });
     if (!tagData) {
-      res.status(404).json({ message: 'No tag found with that ID.' })
+      res.status(404).json({ message: 'No tag found with that ID.' });
+      return;
     };
     res.status(200).json(tagData);
   } catch (err) {
@@ -45,28 +46,28 @@ router.post('/', (req, res) => {
   res.status(200).json(tag))
   .catch((err) => {
     console.log(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
-  // How would I capture a bad request here with the .then-based async?
-  .then((updatedTag) => {
-    if (!updatedTag) {
-    res.status(404).json({ message: 'No tag found with that ID.' })
+  try {
+    const tagData = await Tag.update (req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!tagData[0]) {
+      res.status(404).json({ message: 'No tag found with that ID.' });
+      return;
     }
-  })
-  // This works, but for some reason the updatedTag call is just returning [0].
-  .then((updatedTag) => res.status(200).json(`Tag changed to ${req.body.tag_name}`))
-  .catch((err) => {
-    res.status(400).json(err);
-  });
+
+    res.status(200).json(`Tag updated successfully.`)
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.delete('/:id', async (req, res) => {
@@ -77,7 +78,7 @@ router.delete('/:id', async (req, res) => {
       },
     });
 
-    if (!tagData) {
+    if (!tagData) {;
       res.status(404).json({ message: 'No tag found with that ID.' });
       return;
     }
