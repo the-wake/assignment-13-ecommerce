@@ -45,7 +45,7 @@ From Insomnia, the user can run the follwoing methods on /api/categories, /api/p
 * put (/:id): Update an item in the database.
 * delete (/:id): Remove an item from the database.
 
-As the database is relational, relevant relationships between data (e.g. product tags) will be rendered into the queries.
+As the database is relational, relevant relationships between data (e.g. product tags) will be rendered into the queries. Products and Tags have a many-to-many relationship via the ProductTag subclass.
 
 ## Tools Used
 * JavaScript
