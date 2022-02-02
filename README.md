@@ -28,7 +28,8 @@ If you wish, you may also use seeds.sql to populate the database with starter da
 
 [Demonstration Video: Part 2](https://user-images.githubusercontent.com/56139228/151735590-070e0a8a-177c-4782-b02d-0c0896a52422.mp4)
 
-[Demonstration Video: Part 3](https://user-images.githubusercontent.com/56139228/151820521-afef485d-08a7-43b2-aca4-2087de2f6270.mp4)  
+[Demonstration Video: Part 3](https://user-images.githubusercontent.com/56139228/151820521-afef485d-08a7-43b2-aca4-2087de2f6270.mp4)
+
 *Note: Several bugs have been resolved since the video was captured. Namely, some 404 errors no longer crash the server.*
 
 [Demonstration Video: Part 4](https://user-images.githubusercontent.com/56139228/152073793-d847c52a-1eb3-4616-971b-2d1e6fb28878.mp4)
