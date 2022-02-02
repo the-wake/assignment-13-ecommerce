@@ -24,14 +24,14 @@ DB_NAME=ecommerce_db
 
 If you wish, you may also use seeds.sql to populate the database with starter data. To initialize the database, you can run schema.sql again.
 
-[Tutorial Video: Part 1](https://user-images.githubusercontent.com/56139228/151735586-cf9713ed-af19-4059-9ea5-074deb5169e2.mp4)
+[Demonstration Video: Part 1](https://user-images.githubusercontent.com/56139228/151735586-cf9713ed-af19-4059-9ea5-074deb5169e2.mp4)
 
-[Tutorial Video: Part 2](https://user-images.githubusercontent.com/56139228/151735590-070e0a8a-177c-4782-b02d-0c0896a52422.mp4)
+[Demonstration Video: Part 2](https://user-images.githubusercontent.com/56139228/151735590-070e0a8a-177c-4782-b02d-0c0896a52422.mp4)
 
-[Tutorial Video: Part 3](https://user-images.githubusercontent.com/56139228/151820521-afef485d-08a7-43b2-aca4-2087de2f6270.mp4)
+[Demonstration Video: Part 3](https://user-images.githubusercontent.com/56139228/151820521-afef485d-08a7-43b2-aca4-2087de2f6270.mp4)  
 *Note: Several bugs have been resolved since the video was captured. Namely, some 404 errors no longer crash the server.*
 
-[Tutorial Video: Part 4](https://user-images.githubusercontent.com/56139228/152073793-d847c52a-1eb3-4616-971b-2d1e6fb28878.mp4)
+[Demonstration Video: Part 4](https://user-images.githubusercontent.com/56139228/152073793-d847c52a-1eb3-4616-971b-2d1e6fb28878.mp4)
 
 
 
